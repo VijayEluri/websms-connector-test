@@ -83,10 +83,8 @@ public class ConnectorTest extends Connector {
 	 * 
 	 * @param context
 	 *            {@link Context}
-	 * @throws WebSMSException
-	 *             WebSMSException
 	 */
-	private void doStuff(final Context context) throws WebSMSException {
+	private void doStuff(final Context context) {
 		if (PreferenceManager.getDefaultSharedPreferences(context).getBoolean(
 				"fail", false)) {
 			throw new WebSMSException("fail " + System.currentTimeMillis()
@@ -109,8 +107,7 @@ public class ConnectorTest extends Connector {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void doBootstrap(final Context context, final Intent intent)
-			throws WebSMSException {
+	protected final void doBootstrap(final Context context, final Intent intent) {
 		this.doStuff(context);
 	}
 
@@ -118,8 +115,7 @@ public class ConnectorTest extends Connector {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void doUpdate(final Context context, final Intent intent)
-			throws WebSMSException {
+	protected final void doUpdate(final Context context, final Intent intent) {
 		this.doStuff(context);
 	}
 
@@ -127,8 +123,7 @@ public class ConnectorTest extends Connector {
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected final void doSend(final Context context, final Intent intent)
-			throws WebSMSException {
+	protected final void doSend(final Context context, final Intent intent) {
 		this.doStuff(context);
 	}
 
